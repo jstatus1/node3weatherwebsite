@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+
+    <head>
+        <title>About</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+   
+        <div class="main-content">
+            <center>
+                {{>header}}
+                <h1>Hi, I'm Towelie</h1>
+                <img class = "portrait imgButton" src="./img/mr.towelie.png" alt="" onclick="high()">
+                <audio name = "audioOut" src=""></audio>
+            </center>
+        </div>
+        
+        {{>footer}}
+    
+    </body>
+
+    <script>
+        function high()
+        {
+            //sound
+            var audio = new Audio()
+            var audio = document.getElementsByName("audioOut").src
+            
+            // pauseAllAudio()
+
+            var playlist = new Array("./sound/Responsible.mp3", "./sound/Go Away Sunshine.mp3", "./sound/Lemme Get High.mp3", "./sound/Pretty Much Towel.mp3");
+            var pictures = new Array("./img/highTowelie.png", "./img/mr.towelie.png", "./img/Towelie.png", "./img/Towelie.png")
+            
+            i = Math.floor(Math.random() * playlist.length)
+            audio = playlist[i];
+            document.getElementsByClassName("imgButton").src = "http://31.media.tumblr.com/fca646cd8fe87906e605ad7e8d039903/tumblr_mmoz4fWT6U1soh1p8o1_500.png"
+
+
+            sound = new Audio(audio)
+           
+            sound.volume = 0.3;
+            sound.loop = false;
+            sound.play()
+        }
+
+        function pauseAllAudio()
+        {
+            var allAudios = document.querySelectorAll('audio');
+            allAudios.forEach(function(audio){
+            audio.pause();
+            });
+        }
+
+        function changeThroughPic()
+        {
+            var img = document.getElementsByName("imgButton")
+            var pictures = new Array("./img/highTowelie.png", "./img/mr.towelie.png", "./img/Towelie.png")
+            i = Math.floor(Math.random() * pictures.length)
+            console.log(i)
+            img.src = pictures[i];
+        }
+
+        
+        // btn = document.getElementsByClassName("imgButton")
+
+        // btn.onclick = function(){
+        //     console.log("Imma Get You So High")
+        // }
+
+        
+    </script>
+</html>
